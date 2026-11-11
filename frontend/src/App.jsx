@@ -52,6 +52,18 @@ function App() {
           {trip.status === 'arrived' && (
             <button onClick={() => sendAction('finish')}>finish</button>
           )}
+                    {trip.started_at && (
+            <p>Started: {new Date(trip.started_at).toLocaleString('it-IT')}</p>
+          )}
+          {trip.arrived_at && (
+            <p>Arrived: {new Date(trip.arrived_at).toLocaleString('it-IT')}</p>
+          )}
+          {trip.finished_at && (
+            <p>Finished: {new Date(trip.finished_at).toLocaleString('it-IT')}</p>
+          )}
+                    {trip.duration && (
+            <p>Duration: {trip.duration.split('.')[0]}</p>
+          )}
                     
        </div>
       )}
