@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import CreateTrip from './CreateTrip'
 
 function App() {
   const [code, setCode] = useState('')
@@ -33,6 +34,7 @@ function App() {
   return (
     <div>
       <h1>Track Pilot AI</h1>
+      <CreateTrip />
       <input
         value={code}
         onChange={(e) => setCode(e.target.value)}
