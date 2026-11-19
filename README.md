@@ -4,6 +4,8 @@ Trip tracking app for drivers.
 
 A company creates a trip and the app generates a unique code. The driver enters the code, sees the trip, and records the start, arrival and finish times. The duration is calculated automatically.
 
+![Driver view](docs/driver-view.png)
+
 ## Features
 
 - Unique trip code generated automatically
