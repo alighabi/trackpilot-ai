@@ -28,3 +28,11 @@ Then create the database and start the server:
 
     python manage.py migrate
     python manage.py runserver
+
+Then open a second terminal and start the frontend:
+
+    cd frontend
+    npm install
+    npm run dev
+
+Open http://localhost:5173 in your browser.
