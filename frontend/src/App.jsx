@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import CreateTrip from './CreateTrip'
+import TripList from './TripList'
         
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
     <div>
       <h1>Track Pilot AI</h1>
       <CreateTrip />
+      <TripList />
             <div className="card">
         <h2>Driver</h2>
       <input
