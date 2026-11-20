@@ -6,7 +6,7 @@ function CreateTrip({ onCreated }) {
   const [createdCode, setCreatedCode] = useState('')
   const [error, setError] = useState('')
 
-async function createTrip() {
+  async function createTrip() {
     const response = await fetch('http://127.0.0.1:8000/api/trips/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -37,7 +37,7 @@ async function createTrip() {
         onChange={(e) => setDestination(e.target.value)}
         placeholder="Destination"
       />
-        <button onClick={createTrip}>Create</button>
+      <button onClick={createTrip}>Create</button>
       {createdCode && <p>Trip code: {createdCode}</p>}
       {error && <p>{error}</p>}
     </div>
@@ -45,5 +45,3 @@ async function createTrip() {
 }
 
 export default CreateTrip
-
-      
