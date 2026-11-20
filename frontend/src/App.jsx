@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import CreateTrip from './CreateTrip'
+        
 
 function App() {
   const [code, setCode] = useState('')
@@ -35,6 +36,8 @@ function App() {
     <div>
       <h1>Track Pilot AI</h1>
       <CreateTrip />
+            <div className="card">
+        <h2>Driver</h2>
       <input
         value={code}
         onChange={(e) => setCode(e.target.value)}
@@ -70,6 +73,7 @@ function App() {
        </div>
       )}
               {error && <p>{error}</p>}
+                </div>
     </div>
   )
 }

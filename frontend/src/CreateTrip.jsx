@@ -24,7 +24,7 @@ async function createTrip() {
   }
 
   return (
-    <div>
+    <div className="card">
       <h2>New trip</h2>
       <input
         value={origin}
@@ -44,3 +44,5 @@ async function createTrip() {
 }
 
 export default CreateTrip
+
+      
