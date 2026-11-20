@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import CreateTrip from './CreateTrip'
 import TripList from './TripList'
         
@@ -7,6 +7,16 @@ function App() {
   const [code, setCode] = useState('')
   const [trip, setTrip] = useState(null) // new
   const [error, setError] = useState('')
+  const [trips, setTrips] = useState([])
+
+  async function loadTrips() {
+    const response = await fetch('http://127.0.0.1:8000/api/trips/')
+    setTrips(await response.json())
+  }
+
+  useEffect(() => {
+    loadTrips()
+  }, [])
 
    async function findTrip() {
     const response = await fetch('http://127.0.0.1:8000/api/driver/' + code + '/')
@@ -28,6 +38,7 @@ function App() {
     if (response.ok) {
       setTrip(data)
       setError('')
+      loadTrips()
     } else {
       setError(data.error)
     }
@@ -36,8 +47,8 @@ function App() {
   return (
     <div>
       <h1>Track Pilot AI</h1>
-      <CreateTrip />
-      <TripList />
+      <CreateTrip onCreated={loadTrips} />
+      <TripList trips={trips} /> 
             <div className="card">
         <h2>Driver</h2>
       <input

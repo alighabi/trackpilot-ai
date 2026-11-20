@@ -1,14 +1,4 @@
-import { useState, useEffect } from 'react'
-
-function TripList() {
-  const [trips, setTrips] = useState([])
-
-  useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/trips/')
-      .then((response) => response.json())
-      .then((data) => setTrips(data))
-  }, [])
-
+function TripList({ trips }) {
   return (
     <div className="card">
       <h2>All trips</h2>

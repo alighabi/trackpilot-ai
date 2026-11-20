@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function CreateTrip() {
+function CreateTrip({ onCreated }) {
   const [origin, setOrigin] = useState('')
   const [destination, setDestination] = useState('')
   const [createdCode, setCreatedCode] = useState('')
@@ -18,6 +18,7 @@ async function createTrip() {
       setOrigin('')
       setDestination('')
       setError('')
+      onCreated()
     } else {
       setError('Could not create trip')
     }
