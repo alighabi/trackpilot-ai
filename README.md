@@ -4,10 +4,11 @@ Trip tracking app for drivers.
 
 A company creates a trip and the app generates a unique code. The driver enters the code, sees the trip, and records the start, arrival and finish times. The duration is calculated automatically.
 
-![Driver view](docs/driver-view.png)
+![Track Pilot AI app overview](docs/app-overview.png)
 
 ## Features
 
+- Company view: create trips from the browser
 - Unique trip code generated automatically
 - Driver view: find a trip by its code
 - Status updates: start, arrive, finish, each with a timestamp
