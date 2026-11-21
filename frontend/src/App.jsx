@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import CreateTrip from './CreateTrip'
 import TripList from './TripList'
+import StatusBadge from './StatusBadge'
 
 function App() {
   const [code, setCode] = useState('')
@@ -63,7 +64,9 @@ function App() {
             <h2>
               {trip.origin} → {trip.destination}
             </h2>
-            <p>Status: {trip.status}</p>
+            <p>
+              Status: <StatusBadge status={trip.status} />
+            </p>
             {trip.status === 'assigned' && (
               <button onClick={() => sendAction('start')}>start</button>
             )}

@@ -1,3 +1,4 @@
+import StatusBadge from './StatusBadge'
 function TripList({ trips }) {
   return (
     <div className="card">
@@ -5,7 +6,8 @@ function TripList({ trips }) {
       <ul>
         {trips.map((t) => (
           <li key={t.id}>
-            {t.code}: {t.origin} → {t.destination} ({t.status})
+            {t.code}: {t.origin} → {t.destination}{' '}
+            <StatusBadge status={t.status} />
           </li>
         ))}
       </ul>
