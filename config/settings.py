@@ -27,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [h for h in os.environ.get('ALLOWED_HOSTS', '').split(',') if h]
 
 
 # Application definition  
@@ -133,6 +133,9 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',
+    o
+    for o in os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:5173').split(',')
+    if o
 ]
