@@ -29,6 +29,7 @@ A company creates a trip and the app generates a unique code. The driver enters 
 Create a file named .env in the project folder with your own secret key:
 
     SECRET_KEY=your-secret-key
+    DEBUG=True
 
 Then create the database and start the server:
 
@@ -46,3 +47,16 @@ Open http://localhost:5173 in your browser.
 ## Running the tests
 
     python manage.py test
+
+## Environment variables
+
+The backend reads these variables from the .env file in the project root:
+
+- SECRET_KEY (required): Django secret key.
+- DEBUG (optional): set to True for local development. If missing, it is False.
+- ALLOWED_HOSTS (optional): comma-separated list of allowed host names, used in production.
+- CORS_ALLOWED_ORIGINS (optional): comma-separated list of frontend URLs. Default: http://localhost:5173
+
+The frontend reads one variable:
+
+- VITE_API_URL (optional): base URL of the API. Default: http://127.0.0.1:8000
