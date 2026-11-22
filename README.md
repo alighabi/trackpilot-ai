@@ -14,6 +14,9 @@ A company creates a trip and the app generates a unique code. The driver enters 
 - Status updates: start, arrive, finish, each with a timestamp
 - Trip duration calculated automatically
 - REST API built with Django REST framework
+- Automated backend tests for the trip model and the driver API
+- Live list of all trips for the company
+- Colored status badges
 
 ## Getting started
 
@@ -23,7 +26,7 @@ A company creates a trip and the app generates a unique code. The driver enters 
     .\venv\Scripts\Activate.ps1
     python -m pip install -r requirements.txt
 
-    Create a file named .env in the project folder with your own secret key:
+Create a file named .env in the project folder with your own secret key:
 
     SECRET_KEY=your-secret-key
 
@@ -39,3 +42,7 @@ Then open a second terminal and start the frontend:
     npm run dev
 
 Open http://localhost:5173 in your browser.
+
+## Running the tests
+
+    python manage.py test
