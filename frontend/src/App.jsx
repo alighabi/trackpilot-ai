@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import CreateTrip from './CreateTrip'
 import TripList from './TripList'
 import StatusBadge from './StatusBadge'
+import { API_URL } from './api'
 
 function App() {
   const [code, setCode] = useState('')
@@ -10,7 +11,7 @@ function App() {
   const [trips, setTrips] = useState([])
 
   async function loadTrips() {
-    const response = await fetch('http://127.0.0.1:8000/api/trips/')
+    const response = await fetch(API_URL + '/api/trips/')
     setTrips(await response.json())
   }
 
@@ -19,9 +20,7 @@ function App() {
   }, [])
 
   async function findTrip() {
-    const response = await fetch(
-      'http://127.0.0.1:8000/api/driver/' + code + '/',
-    )
+    const response = await fetch(API_URL + '/api/driver/' + code + '/')
     if (response.ok) {
       setTrip(await response.json())
       setError('')
@@ -33,9 +32,10 @@ function App() {
 
   async function sendAction(action) {
     const response = await fetch(
-      'http://127.0.0.1:8000/api/driver/' + code + '/' + action + '/',
+      API_URL + '/api/driver/' + code + '/' + action + '/',
       { method: 'POST' },
     )
+
     const data = await response.json()
     if (response.ok) {
       setTrip(data)

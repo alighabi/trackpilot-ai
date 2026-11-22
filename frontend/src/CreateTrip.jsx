@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { API_URL } from './api'
 
 function CreateTrip({ onCreated }) {
   const [origin, setOrigin] = useState('')
@@ -7,11 +8,12 @@ function CreateTrip({ onCreated }) {
   const [error, setError] = useState('')
 
   async function createTrip() {
-    const response = await fetch('http://127.0.0.1:8000/api/trips/', {
+    const response = await fetch(API_URL + '/api/trips/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ origin, destination }),
     })
+
     const data = await response.json()
     if (response.ok) {
       setCreatedCode(data.code)
